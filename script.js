@@ -83,14 +83,13 @@ function handleYesClick() {
 }
 
 function checkAnswer() {
-  const correctAnswer = "blue"; // 정답을 여기에 설정하세요
+  const correctAnswer = "pakwan"; // Anwer
   const userAnswer = document
     .getElementById("answerInput")
     .value.toLowerCase()
     .trim();
 
   if (userAnswer === correctAnswer) {
-    // 답변이 맞으면 질문 섹션을 숨기고 버튼 섹션을 보여줌
     document.getElementById("questionSection").style.display = "none";
     document.getElementById("buttonsSection").style.display = "block";
   } else {
