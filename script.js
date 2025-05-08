@@ -83,17 +83,44 @@ function handleYesClick() {
 }
 
 function checkAnswer() {
-  const correctAnswer = "pakwan"; // 정답
+  const correctAnswer = "pakwan"; // 원하는 정답으로 변경
   const userAnswer = document
     .getElementById("answerInput")
     .value.toLowerCase()
     .trim();
 
+  if (!userAnswer) {
+    alert("กรุณากรอกคำตอบก่อน!");
+    return;
+  }
+
   if (userAnswer === correctAnswer) {
     document.getElementById("questionSection").style.display = "none";
     document.getElementById("buttonsSection").style.display = "block";
-    document.getElementById("mainTitle").style.display = "block"; // h1 보이기
+    document.getElementById("mainTitle").style.display = "block";
   } else {
-    alert("Wrong answer! Try again.");
+    alert("คำตอบไม่ถูกต้อง! ลองอีกครั้งนะ");
   }
 }
+
+document.body.addEventListener(
+  "click",
+  function () {
+    const bgm = document.getElementById("bgm");
+    if (bgm) {
+      bgm.muted = false;
+      bgm.play();
+    }
+  },
+  { once: true }
+);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const startButton = document.getElementById("startButton");
+  if (startButton) {
+    startButton.addEventListener("click", function () {
+      document.getElementById("introSection").style.display = "none";
+      document.getElementById("questionSection").style.display = "block";
+    });
+  }
+});

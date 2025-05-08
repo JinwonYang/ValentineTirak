@@ -95,3 +95,7 @@ h1 {
 .heart-button:hover {
   transform: scale(1.2);
 }
+
+audio#bgm {
+  display: none;
+}
