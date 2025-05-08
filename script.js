@@ -83,7 +83,7 @@ function handleYesClick() {
 }
 
 function checkAnswer() {
-  const correctAnswer = "pakwan"; // Anwer
+  const correctAnswer = "pakwan"; // 정답
   const userAnswer = document
     .getElementById("answerInput")
     .value.toLowerCase()
@@ -92,6 +92,7 @@ function checkAnswer() {
   if (userAnswer === correctAnswer) {
     document.getElementById("questionSection").style.display = "none";
     document.getElementById("buttonsSection").style.display = "block";
+    document.getElementById("mainTitle").style.display = "block"; // h1 보이기
   } else {
     alert("Wrong answer! Try again.");
   }
