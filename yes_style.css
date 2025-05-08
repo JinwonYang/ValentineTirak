@@ -1,24 +1,36 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f9e3e3;
-    font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f9e3e3;
+  font-family: "Arial", sans-serif;
 }
 
 .container {
-    text-align: center;
+  text-align: center;
 }
 
 .header_text {
-    font-size: 3em;
-    color: #d32f2f;
+  font-size: 3em;
+  color: #d32f2f;
 }
 
 .gif_container img {
-    width: 100%; 
-    max-width: 500px; 
-    height: auto; 
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+}
+
+.video_container {
+  margin-top: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video_container video {
+  width: 100%;
+  border-radius: 10px;
 }
