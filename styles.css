@@ -22,24 +22,25 @@ h1 {
   margin-top: 20px;
 }
 
-.yes-button,
-.no-button {
+.yes-button {
   font-size: 1.5em;
   padding: 10px 20px;
-  margin: 0 10px;
+  margin-right: 10px;
+  background-color: #4caf50;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.yes-button {
-  background-color: #4caf50;
-  color: white;
-}
-
 .no-button {
+  font-size: 1.5em;
+  padding: 10px 20px;
   background-color: #f44336;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .gif_container img {
@@ -54,7 +55,7 @@ h1 {
 }
 
 .question {
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: #d32f2f;
   margin-bottom: 10px;
 }
