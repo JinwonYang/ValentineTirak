@@ -9,10 +9,20 @@
   <body>
     <div class="container">
       <h1>Ti Rak Pakwan will you be my Valentine?</h1>
-      <div class="buttons">
+
+      <!-- 질문과 답변 입력 섹션 -->
+      <div class="question-section" id="questionSection">
+        <p class="question">What is my favorite color?</p>
+        <input type="text" id="answerInput" placeholder="Enter your answer" />
+        <button onclick="checkAnswer()">Submit</button>
+      </div>
+
+      <!-- Yes/No 버튼 섹션 (처음에는 숨김) -->
+      <div class="buttons" id="buttonsSection" style="display: none">
         <button class="yes-button" onclick="handleYesClick()">Yes</button>
         <button class="no-button" onclick="handleNoClick()">No</button>
       </div>
+
       <div class="gif_container">
         <img
           src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif"
