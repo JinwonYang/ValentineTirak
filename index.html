@@ -7,14 +7,100 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- 음악 자동재생 (처음엔 muted, 클릭 시 소리) -->
+    <audio id="bgm" src="33.mp4" autoplay loop muted></audio>
+
     <div class="container">
       <!-- 인트로(시작) 페이지 -->
       <div id="introSection">
-        <h1>ฉันมีคำถามพิเศษสำหรับคุณ!</h1>
-        <h2>Click the heart to start!</h2>
-        <button class="heart-button" id="startButton" aria-label="Start">
-          ❤️
-        </button>
+        <h1>Welcome to my Valentine's Day Game!</h1>
+        <button class="start-btn" id="startButton">Start</button>
+      </div>
+
+      <!-- 게임 섹션 (처음엔 숨김) -->
+      <div id="gameSection" style="display: none">
+        <h2 id="gameTitle">Click the heart to get 7 points in 5 seconds!</h2>
+        <div style="margin-bottom: 10px">
+          Time left: <span id="countdown">5</span> seconds
+        </div>
+        <div
+          id="gameArea"
+          style="
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            background: #fff0f0;
+            border-radius: 20px;
+          "
+        >
+          <button
+            id="gameHeart"
+            style="
+              position: absolute;
+              font-size: 2.5em;
+              background: none;
+              border: none;
+              cursor: pointer;
+              color: #ff1a3c;
+            "
+          >
+            ❤️
+          </button>
+          <!-- 계속(하트) 버튼: 게임 박스 중앙에 위치 -->
+          <button
+            id="continueBtn"
+            onclick="endGame()"
+            class="heart-button"
+            aria-label="Continue"
+            style="
+              display: none;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 4em;
+              z-index: 10;
+            "
+          >
+            ❤️
+          </button>
+          <!-- 리플레이 버튼: 게임 박스 중앙에 위치 -->
+          <button
+            onclick="retryGame()"
+            id="retryBtn"
+            class="heart-button"
+            aria-label="Retry"
+            style="
+              display: none;
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 3em;
+              z-index: 10;
+            "
+          >
+            🔄
+          </button>
+        </div>
+        <div style="margin-top: 10px">Score: <span id="score">0</span></div>
+        <div
+          id="gameResult"
+          style="display: none; margin-top: 10px; position: relative"
+        >
+          <span id="finalScore"></span><br />
+          <div
+            id="gameWinMsg"
+            style="
+              display: none;
+              color: #d32f2f;
+              margin: 20px 0;
+              font-size: 1.5em;
+              font-weight: bold;
+            "
+          ></div>
+        </div>
       </div>
 
       <!-- 질문 입력 페이지 (처음엔 숨김) -->
@@ -30,25 +116,43 @@
         >
           ❤️
         </button>
+        <div class="gif_container">
+          <img
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif"
+            alt="Cute GIF"
+          />
+        </div>
       </div>
 
       <!-- 정답 맞췄을 때 보여줄 h1과 버튼들 (처음엔 숨김) -->
       <h1 id="mainTitle" style="display: none">
-        Will You Be My Valentine Pakwan ㅎㅎ?
+        Will You Be My Valentine ที่รัก?
       </h1>
       <div class="buttons" id="buttonsSection" style="display: none">
         <button class="yes-button" onclick="handleYesClick()">ใช่</button>
         <button class="no-button" onclick="handleNoClick()">ไม่ใช่</button>
-      </div>
-
-      <div class="gif_container">
-        <img
-          src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif"
-          alt="Cute GIF"
-        />
+        <div class="gif_container">
+          <img
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif"
+            alt="Cute GIF"
+          />
+        </div>
       </div>
     </div>
-    <audio id="bgm" src="33.mp4" autoplay loop muted></audio>
     <script src="script.js"></script>
+    <script>
+      // 사용자가 한 번이라도 클릭하면 소리 켜기
+      document.body.addEventListener(
+        "click",
+        function () {
+          const bgm = document.getElementById("bgm");
+          if (bgm) {
+            bgm.muted = false;
+            bgm.play();
+          }
+        },
+        { once: true }
+      );
+    </script>
   </body>
 </html>
